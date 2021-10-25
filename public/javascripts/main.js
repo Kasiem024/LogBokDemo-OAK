@@ -2,48 +2,83 @@
 
 console.log('main.js is alive');
 
-let cars = [];
+let usersList = [];
+let bookingsList = [];
 
 fetch('http://localhost:3000/users')
     .then(response => {
         return response.json();
     })
-    .then(anka => {
-        cars = anka;
-        console.log(cars)
+    .then(resusers => {
+        usersList = resusers;
+        console.log(usersList)
     });
 
-let counter = 0;
+fetch('http://localhost:3000/bookingsList')
+    .then(response => {
+        return response.json();
+    })
+    .then(resBookings => {
+        let bookingsList = resBookings;
+        console.log(bookingsList)
+        ShowBookings(bookingsList);
+    });
 
 const Login = () => {
-    const data = users.response;
+    const data = usersList;
+    console.log(data)
 
     let inputName = document.getElementById('tBoxNameId').value;
-
-    // "p" will be used to inform user of invalid input in inputName
-    // style.display = 'none' essentially deletes the element
-    const p = document.createElement('p');
-    p.style.display = 'none';
-    document.getElementById('login').appendChild(p);
+    let inputPas = document.getElementById('tBoxPasId').value;
 
     data.users.forEach((element) => {
-        if (inputName == element.name) {
-
-            const tBoxNamn = document.getElementById('tBoxNameId')
-
-            // Adding to cookie the users name
-            document.cookie = 'user=' + tBoxNamn.value;
-
-            location.href = '/booking';
+        if (inputName == element.name && inputPas == element.password) {
+            location.href = '/bookings'
         } else {
-            if (counter < 1) {
-                // This in combination with above code concerning "p"
-                // Makes it so "p" is only printed once per button click
-                counter++;
-                p.textContent = 'Invalid username, try again!'
-                p.style.display = 'block';
-                document.getElementById('login').appendChild(p);
-            }
+            console.log('Invalid Username')
         }
     });
+}
+
+const ShowBookings = (dataCalendar) => {
+    console.log('hej hej')
+
+    const tBoxData = document.getElementById('tBoxBookTimeId')
+    tBoxData.style.display = 'none';
+
+    const btnConfirm = document.createElement('button');
+    btnConfirm.id = 'btnConfirmId';
+    btnConfirm.textContent = 'Confirm';
+    btnConfirm.disabled = true;
+    document.getElementById('formId').appendChild(btnConfirm);
+
+    for (let i = 0; i < dataCalendar.week.length; i++) {
+
+        let mybr = document.createElement('br');
+        document.body.appendChild(mybr);
+
+        const p = document.createElement('p');
+        p.textContent = dataCalendar.week[i].day
+        document.body.appendChild(p);
+
+        for (let j = 0; j < dataCalendar.week[i].times.length; j++) {
+
+            const btn = document.createElement('button');
+            btn.textContent = "Boka " + dataCalendar.week[i].times[j].time;
+            btn.style.width = "80px"
+            btn.style.height = "80px"
+            btn.id = i + "," + j;
+            btn.className = 'btnBookClass';
+
+            document.body.appendChild(btn);
+
+            if (dataCalendar.week[i].times[j].booked == true) {
+                btn.disabled = true;
+            }
+        }
+    }
+};
+
+const btnSignOut = () => {
+    location.href = '/login'
 }

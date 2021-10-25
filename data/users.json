@@ -1,21 +1,19 @@
 {
     "users": [{
-        "user": [{
-                "name": "oscar",
-                "password": "oscar123"
-            },
-            {
-                "name": "adam",
-                "password": "adam123"
-            },
-            {
-                "name": "kasiem",
-                "password": "kasiem123"
-            },
-            {
-                "name": "admin",
-                "password": "admin123"
-            }
-        ]
-    }]
+            "name": "oscar",
+            "password": "oscar123"
+        },
+        {
+            "name": "adam",
+            "password": "adam123"
+        },
+        {
+            "name": "kasiem",
+            "password": "kasiem123"
+        },
+        {
+            "name": "admin",
+            "password": "admin123"
+        }
+    ]
 }
