@@ -1,4 +1,15 @@
 extends layout
 
 block content
-  h1 Hello Bookings
+  h2 What time do you want to book?
+  a(href='#') Show Booking
+  br
+  br
+  button(id='btnCancelId' onclick='btnCancel()' disabled) Cancel
+  br
+  br
+  form(id='formId' method='POST')
+    input(type='text' id='tBoxBookTimeId' name='tBoxBookTimeName')
+  br
+  button(id='btnSignOutId' onclick='btnSignOut()') Sign Out
+  .calendar

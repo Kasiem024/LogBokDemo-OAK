@@ -1,4 +1,14 @@
 extends layout
 
 block content
-  h1 Hello Login
+  h1 BookingApp OAK - Login
+  .login
+    label Username
+    input(type='text' id='tBoxNameId' placeholder='kalle')
+    br
+    br
+    label Password
+    input(type='password' id='tBoxPasId' placeholder='kalle123')
+    br
+    button(onclick='Login()') Log in
+  hr
