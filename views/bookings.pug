@@ -2,14 +2,15 @@ extends layout
 
 block content
   h2 What time do you want to book?
-  a(href='#') Show Booking
+  //- button(id='btnCancelId' onclick='btnCancel()' disabled) Cancel
+  //- br
+  //- br
+  //- form(id='formId' method='POST')
+  //-   input(type='text' id='tBoxBookTimeId' name='tBoxBookTimeName')
   br
+  button(id='btnShowBookingsId' onclick='btnShowBookings()') Show All Bookings
   br
-  button(id='btnCancelId' onclick='btnCancel()' disabled) Cancel
-  br
-  br
-  form(id='formId' method='POST')
-    input(type='text' id='tBoxBookTimeId' name='tBoxBookTimeName')
+  button(id='btnHideBookingsId' onclick='btnHideBookings()' disabled) Hide All Bookings
   br
   button(id='btnSignOutId' onclick='btnSignOut()') Sign Out
-  .calendar
+  #calendar
