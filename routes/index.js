@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 
-
 // TODO
 // Separera klienten och servern mer
 // Fler saker ska hända på server sidan
@@ -12,8 +11,6 @@ const fs = require('fs');
 // Detta leder till mer säkerhet
 // Två route filer
 
-
-/* GET home page. */
 router.get('/', (req, res) => res.render('login'));
 
 router.get('/bookings', (req, res) => res.render('bookings'));

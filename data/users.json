@@ -1,19 +1,23 @@
 {
     "users": [{
             "name": "oscar",
-            "password": "oscar123"
+            "password": "oscar123",
+            "loggedIn": false
         },
         {
             "name": "adam",
-            "password": "adam123"
+            "password": "adam123",
+            "loggedIn": false
         },
         {
             "name": "kasiem",
-            "password": "kasiem123"
+            "password": "kasiem123",
+            "loggedIn": false
         },
         {
             "name": "admin",
-            "password": "admin123"
+            "password": "admin123",
+            "loggedIn": false
         }
     ]
 }
