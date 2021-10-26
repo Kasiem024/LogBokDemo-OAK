@@ -3,6 +3,14 @@ const router = express.Router();
 const fs = require('fs');
 
 
+// TODO
+// Separera klienten och servern mer
+// Fler saker ska hända på server sidan
+// När en användare trycker på logga in skickas en GET och POST
+// Responsen blir en JA eller NEJ
+// Kan ha en bool i users.json, TRUE vid log in FALSE vid log ut
+// Detta leder till mer säkerhet
+
 
 /* GET home page. */
 router.get('/login', (req, res) => res.render('login'));
