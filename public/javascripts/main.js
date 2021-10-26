@@ -9,8 +9,8 @@ fetch('http://localhost:3000/api/users')
     .then(response => {
         return response.json();
     })
-    .then(resusers => {
-        usersList = resusers;
+    .then(resUsers => {
+        usersList = resUsers;
         console.log(usersList);
     });
 

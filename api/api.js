@@ -5,16 +5,16 @@ console.log('main.js is alive');
 let usersList = [];
 let bookingsList = [];
 
-fetch('http://localhost:3000/users')
+fetch('http://localhost:3000/api/users')
     .then(response => {
         return response.json();
     })
-    .then(resusers => {
-        usersList = resusers;
+    .then(resUsers => {
+        usersList = resUsers;
         console.log(usersList);
     });
 
-fetch('http://localhost:3000/bookingsList')
+fetch('http://localhost:3000/api/bookingsList')
     .then(response => {
         return response.json();
     })
@@ -25,7 +25,6 @@ fetch('http://localhost:3000/bookingsList')
 
 const Login = () => {
     const data = usersList;
-    console.log(data);
 
     let inputName = document.getElementById('tBoxNameId').value;
     let inputPas = document.getElementById('tBoxPasId').value;
